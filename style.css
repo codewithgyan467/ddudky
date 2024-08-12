@@ -1,0 +1,376 @@
+/* Base styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.logo-container .icon {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo-container .icon .circle {
+    width: 100%;
+    height: 100%;
+    background-color: #00bcd4;
+    border-radius: 50%;
+}
+
+.logo-container .icon .ribbon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25px;
+    height: 10px;
+    background-color: #ff9800;
+    border-radius: 2px;
+}
+
+.logo-container .text h1 {
+    margin: 0;
+    color: #333;
+    font-size: 24px;
+}
+
+h1 {
+    font-size: 36px;
+    margin: 0;
+    color: #333333;
+    font-weight: bold;
+}
+
+.logo-container .text p.full-name {
+    margin: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+.logo-container .text p.tagline {
+    margin: 0;
+    font-size: 12px;
+    color: #777;
+}
+
+/* Style for quiz container */
+.quiz-container {
+    max-width: 100%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for question container */
+.question {
+    margin-bottom: 20px;
+}
+
+/* Style for question images */
+.question img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Style for options container */
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Style for labels */
+.options label {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+/* Style for input radio buttons */
+.options input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #777;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.options label:hover {
+    background-color: #e6f7ff;
+    border-color: #40a9ff;
+}
+
+.options input[type="radio"]:checked {
+    background-color: #40a9ff;
+    border-color: #40a9ff;
+}
+
+button[type="button"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #1890ff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+/* Style for submit button when hovered */
+button[type="button"]:hover {
+    background-color: #40a9ff;
+}
+
+/* Style for result text */
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    text-align: center;
+}
+
+/* Memory Match game styles */
+.memory-container {
+    max-width: 100%;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#memory-board {
+    display: grid;
+    grid-template-columns: repeat(4, 80px);
+    grid-template-rows: repeat(4, 80px);
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.memory-card {
+    width: 80px;
+    height: 80px;
+    background-color: #fff;
+    border: 2px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    position: relative;
+    perspective: 1000px;
+}
+
+.memory-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.memory-card .hidden {
+    transform: rotateY(180deg);
+}
+
+.memory-card.flipped .hidden {
+    transform: rotateY(0);
+}
+
+.memory-card.flipped img:not(.hidden) {
+    transform: rotateY(180deg);
+}
+
+#memory-restartButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#memory-message {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .logo-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .logo-container .icon {
+        margin-bottom: 10px;
+    }
+
+    .quiz-container, .memory-container {
+        padding: 15px;
+        margin: 10px;
+    }
+
+    #memory-board {
+        grid-template-columns: repeat(3, 60px);
+        grid-template-rows: repeat(3, 60px);
+    }
+
+    .memory-card {
+        width: 60px;
+        height: 60px;
+    }
+
+    button[type="button"], #memory-restartButton {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .question img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #result, #memory-message {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-container h1 {
+        font-size: 24px;
+    }
+
+    .logo-container .text p.full-name {
+        font-size: 12px;
+    }
+
+    .logo-container .text p.tagline {
+        font-size: 10px;
+    }
+
+    .quiz-container {
+        padding: 10px;
+    }
+
+    .question img {
+        width: 100%;
+    }
+
+    .options label {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    button[type="button"], #memory-restartButton {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
+/* Stylish Button for Playing Games */
+#play-games-button {
+    background-color: #4CAF50; /* Green background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 15px 32px; /* Add some padding */
+    text-align: center; /* Center text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Keep it inline */
+    font-size: 16px; /* Increase font size */
+    margin: 20px auto; /* Add some space around it */
+    cursor: pointer; /* Add a pointer cursor on hover */
+    transition: background-color 0.3s, transform 0.3s; /* Add transition effects */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Add a shadow */
+}
+
+#play-games-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+#play-games-button:active {
+    background-color: #3e8e41; /* Even darker green on click */
+    transform: translateY(2px); /* Button sinks in on click */
+}
+#toggle-quiz-button,
+#show-memory-game-button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+#toggle-quiz-button:hover,
+#show-memory-game-button:hover {
+    background-color: #0056b3;
+}
+
+#toggle-quiz-button:focus,
+#show-memory-game-button:focus {
+    outline: none;
+}
+.flip-container {
+    perspective: 1000px;
+    width: 200px; /* Adjust width as needed */
+    height: 200px; /* Adjust height as needed */
+    position: relative;
+    display: flex; /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+}
+
+.flip-container img {
+    width: 100%; /* Adjust width to fit container */
+    height: 100%; /* Adjust height to fit container */
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    transition: transform 0.6s;
+}
+
+.flip-container .front {
+    z-index: 2;
+    transform: rotateY(0deg);
+}
+
+.flip-container .back {
+    transform: rotateY(180deg);
+}
+
+.flip-container.flipped .front {
+    transform: rotateY(-180deg);
+}
+
+.flip-container.flipped .back {
+    transform: rotateY(0deg);
+}
